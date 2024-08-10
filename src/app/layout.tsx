@@ -1,6 +1,6 @@
 import Fonts from '@/components/Fonts';
+import ThemeToggle from '@/components/ThemeToggle';
 import StyledComponentsRegistry from '@/lib/registry';
-import GlobalStyles from '@/styles/GlobalStyles';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -19,8 +19,9 @@ export default function RootLayout({
         <Fonts />
       </head>
       <body>
-        <GlobalStyles />
-        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        <StyledComponentsRegistry>
+          <ThemeToggle>{children}</ThemeToggle>
+        </StyledComponentsRegistry>
       </body>
     </html>
   );
