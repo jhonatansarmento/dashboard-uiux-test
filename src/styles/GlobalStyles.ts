@@ -1,3 +1,4 @@
+'use client';
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
@@ -9,8 +10,8 @@ const GlobalStyles = createGlobalStyle`
   }
 
   html {
-    background-color: ${({ theme }) => theme.background};
-    color: ${({ theme }) => theme.color};
+    background-color: #09090A;
+    color: #EFEFEF;
   }
 `;
 
