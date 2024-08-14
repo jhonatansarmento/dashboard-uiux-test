@@ -7,36 +7,6 @@ interface ThemeProps {
   isClickable?: boolean;
 }
 
-export const SidebarContainer = styled.div<ThemeProps>`
-  width: 286px;
-  height: 100vh;
-  background-color: ${({ theme }) => theme.sidebarBackground};
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 2rem;
-
-  svg {
-    color: ${({ theme, isSelected }) => (isSelected ? theme.color : '')};
-  }
-
-  p {
-    margin: 0;
-    font-size: ${({ isLoggedIn }) => (isLoggedIn ? '0.9rem' : '1rem')};
-    color: ${({ theme }) => theme.color};
-  }
-`;
-
-export const Logo = styled.div`
-  font-size: 2.1rem;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 3rem;
-  color: ${({ theme }) => theme.color};
-`;
-
 export const LoginContainer = styled.div<ThemeProps>`
   display: flex;
   align-items: center;
@@ -55,6 +25,19 @@ export const LoginContainer = styled.div<ThemeProps>`
   &:hover {
     background: ${({ theme, isClickable }) =>
       isClickable && theme.sidebarHover};
+  }
+`;
+
+export const Logo = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  color: ${({ theme }) => theme.color};
+
+  h1 {
+    font-size: 2.1rem;
+    font-weight: bold;
   }
 `;
 
@@ -93,6 +76,10 @@ export const BottomContainer = styled.div`
   align-items: flex-start;
   padding: 0 0.75rem;
   gap: 1rem;
+
+  @media (max-width: 768px) {
+    align-items: center;
+  }
 `;
 
 export const LogoutButton = styled.button<ThemeProps>`
@@ -108,5 +95,75 @@ export const LogoutButton = styled.button<ThemeProps>`
 
   &:hover {
     color: ${({ theme }) => theme.color};
+  }
+`;
+
+export const SidebarContainer = styled.div<ThemeProps>`
+  width: 286px;
+  height: 100vh;
+  background-color: ${({ theme }) => theme.sidebarBackground};
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+  transition: width 0.3s ease;
+
+  svg {
+    color: ${({ theme, isSelected }) => (isSelected ? theme.color : '')};
+  }
+
+  p {
+    margin: 0;
+    font-size: ${({ isLoggedIn }) => (isLoggedIn ? '0.9rem' : '1rem')};
+    color: ${({ theme }) => theme.color};
+  }
+
+  @media (max-width: 768px) {
+    width: 80px;
+    padding: 1rem;
+
+    ${Logo} {
+      justify-content: center;
+
+      h1 {
+        display: none;
+      }
+    }
+
+    ${LoginContainer} {
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+
+      div {
+        display: none;
+      }
+    }
+
+    ${NavItems} {
+      align-items: center;
+    }
+
+    ${NavItem} {
+      justify-content: center;
+      gap: 0.5rem;
+
+      span {
+        display: none;
+      }
+    }
+
+    ${BottomContainer} {
+      align-items: center;
+    }
+
+    ${LogoutButton} {
+      justify-content: center;
+      gap: 0.5rem;
+
+      p {
+        display: none;
+      }
+    }
   }
 `;

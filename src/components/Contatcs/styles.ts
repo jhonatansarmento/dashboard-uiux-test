@@ -40,7 +40,7 @@ export const ContactInfo = styled.div`
   display: flex;
   justify-content: center;
   gap: 1rem;
-  flex-wrap: wrap; /* Permite que os itens quebrem de linha se necessário */
+  flex-wrap: wrap;
   margin-top: 1rem;
 `;
 

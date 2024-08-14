@@ -5,10 +5,10 @@ import * as S from './styles';
 const Messages = () => {
   return (
     <S.Container>
-      <S.Title>Messages</S.Title>
+      <S.Title>Mensagens</S.Title>
       <S.Content>
-        <p>Welcome to your messages.</p>
-        <p>You have no new messages.</p>
+        <p>Bem-vindo às suas mensagens.</p>
+        <p>Você não tem novas mensagens.</p>
       </S.Content>
     </S.Container>
   );

@@ -23,7 +23,7 @@ const menuItems = [
     component: 'Dashboard',
   },
   {
-    name: 'Messages',
+    name: 'Mensagens',
     icon: <LuMessageSquare size={18} />,
     component: 'Messages',
   },
@@ -69,7 +69,7 @@ const Sidebar = ({ onSelectComponent }: SidebarProps) => {
       <div>
         <S.Logo>
           <Image width={42} height={42} src='/logo.svg' alt='TradeSee' />
-          TradeSee
+          <h1>TradeSee</h1>
         </S.Logo>
         <S.LoginContainer
           isDarkMode={isDarkMode}
@@ -107,7 +107,7 @@ const Sidebar = ({ onSelectComponent }: SidebarProps) => {
               isLoggedIn={isLoggedIn}
               onClick={() => handleMenuItemClick(item.component)}
             >
-              {item.icon} {item.name}
+              {item.icon} <span>{item.name}</span>
             </S.NavItem>
           ))}
         </S.NavItems>
