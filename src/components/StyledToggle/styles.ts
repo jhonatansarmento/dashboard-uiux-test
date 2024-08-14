@@ -10,7 +10,7 @@ export const ToggleContainer = styled.div<ToggleProps>`
   justify-content: center;
   width: 50px;
   height: 30px;
-  background-color: ${({ isDarkMode }) => (isDarkMode ? '#1f1f22' : '#016aa2')};
+  background-color: ${({ theme }) => theme.sidebarHover};
   border-radius: 50px;
   padding: 5px;
   cursor: pointer;
@@ -21,7 +21,7 @@ export const ToggleContainer = styled.div<ToggleProps>`
 export const ToggleCircle = styled.div<ToggleProps>`
   width: 24px;
   height: 24px;
-  background-color: ${({ isDarkMode }) => (isDarkMode ? '#016aa2' : '#1f1f22')};
+  background-color: ${({ theme }) => theme.backgroundIcon};
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -32,6 +32,6 @@ export const ToggleCircle = styled.div<ToggleProps>`
   transition: left 0.3s ease, background-color 0.3s ease;
 
   svg {
-    color: ${({ isDarkMode }) => (isDarkMode ? '#1f1f22' : '#016aa2')};
+    color: ${({ theme }) => theme.ToggleIconColor || theme.iconColor};
   }
 `;

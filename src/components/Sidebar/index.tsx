@@ -9,6 +9,7 @@ import {
   LuCalendar,
   LuContact,
   LuLayoutDashboard,
+  LuLogIn,
   LuLogOut,
   LuSettings,
 } from 'react-icons/lu';
@@ -42,12 +43,20 @@ interface SidebarProps {
 const Sidebar = ({ onSelectComponent }: SidebarProps) => {
   const { isDarkMode, toggleTheme } = useContext(ThemeContext);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [selectedMenu, setSelectedMenu] = useState<string>('Dashboard');
 
   const handleLoginClick = () => {
-    setIsLoggedIn(!isLoggedIn);
+    if (!isLoggedIn) {
+      setIsLoggedIn(true);
+    }
+  };
+
+  const handleLogoutClick = () => {
+    setIsLoggedIn(false);
   };
 
   const handleMenuItemClick = (component: string) => {
+    setSelectedMenu(component);
     onSelectComponent(component);
   };
 
@@ -62,6 +71,7 @@ const Sidebar = ({ onSelectComponent }: SidebarProps) => {
           isDarkMode={isDarkMode}
           onClick={handleLoginClick}
           isLoggedIn={isLoggedIn}
+          isClickable={!isLoggedIn} // Adiciona prop para controlar o estilo
         >
           {isLoggedIn ? (
             <>
@@ -78,15 +88,19 @@ const Sidebar = ({ onSelectComponent }: SidebarProps) => {
               </div>
             </>
           ) : (
-            <p>Olá, faça seu login</p>
+            <>
+              <p>Olá, faça seu login</p>
+              <LuLogIn size={18} />
+            </>
           )}
-          <LuLogOut size={18} />
         </S.LoginContainer>
         <S.NavItems>
           {menuItems.map((item) => (
             <S.NavItem
               key={item.name}
               isDarkMode={isDarkMode}
+              isSelected={item.component === selectedMenu}
+              isLoggedIn={isLoggedIn}
               onClick={() => handleMenuItemClick(item.component)}
             >
               {item.icon} {item.name}
@@ -94,9 +108,15 @@ const Sidebar = ({ onSelectComponent }: SidebarProps) => {
           ))}
         </S.NavItems>
       </div>
-      <S.ToggleButton>
+      <S.BottomContainer>
+        {isLoggedIn && (
+          <S.LogoutButton onClick={handleLogoutClick} isDarkMode={isDarkMode}>
+            <LuLogOut size={18} />
+            <p>Sair</p>
+          </S.LogoutButton>
+        )}
         <ThemeToggle isDarkMode={isDarkMode} handleToggle={toggleTheme} />
-      </S.ToggleButton>
+      </S.BottomContainer>
     </S.SidebarContainer>
   );
 };

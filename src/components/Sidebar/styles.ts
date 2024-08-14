@@ -3,16 +3,28 @@ import styled from 'styled-components';
 interface ThemeProps {
   isDarkMode: boolean;
   isLoggedIn?: boolean;
+  isSelected?: boolean;
+  isClickable?: boolean;
 }
 
 export const SidebarContainer = styled.div<ThemeProps>`
   width: 286px;
   height: 100vh;
-  background-color: ${({ isDarkMode }) => (isDarkMode ? '#0d0d0e' : '#fff')};
+  background-color: ${({ theme }) => theme.sidebarBackground};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 2rem;
+
+  svg {
+    color: ${({ theme, isSelected }) => (isSelected ? theme.color : '')};
+  }
+
+  p {
+    margin: 0;
+    font-size: ${({ isLoggedIn }) => (isLoggedIn ? '0.9rem' : '1rem')};
+    color: ${({ theme }) => theme.color};
+  }
 `;
 
 export const Logo = styled.div`
@@ -22,6 +34,7 @@ export const Logo = styled.div`
   align-items: center;
   gap: 1rem;
   margin-bottom: 3rem;
+  color: ${({ theme }) => theme.color};
 `;
 
 export const LoginContainer = styled.div<ThemeProps>`
@@ -32,26 +45,16 @@ export const LoginContainer = styled.div<ThemeProps>`
   padding: 0.75rem;
   border-radius: 16px;
   transition: background 0.3s ease;
-  cursor: pointer;
-
-  p {
-    margin: 0;
-    font-size: ${({ isLoggedIn }) => (isLoggedIn ? '0.9rem' : '1rem')};
-    color: ${({ isDarkMode }) => (isDarkMode ? '#fff' : '#000')};
-  }
+  cursor: ${({ isClickable }) => (isClickable ? 'pointer' : 'default')};
 
   p:nth-child(2) {
     font-size: 0.75rem;
-    color: ${({ isDarkMode }) => (isDarkMode ? '#a0a0a0' : '#666')};
-  }
-
-  svg {
-    color: ${({ isDarkMode }) => (isDarkMode ? '#016aa2' : '#000')};
-    margin-left: auto;
+    color: ${({ theme }) => theme.color};
   }
 
   &:hover {
-    background: ${({ isDarkMode }) => (isDarkMode ? '#1f1f22' : '#f5f5f5')};
+    background: ${({ theme, isClickable }) =>
+      isClickable && theme.sidebarHover};
   }
 `;
 
@@ -70,15 +73,40 @@ export const NavItem = styled.li<ThemeProps>`
   border-radius: 16px;
   transition: background 0.3s ease;
 
+  background-color: ${({ isSelected, theme }) =>
+    isSelected ? theme.sidebarSelected : 'transparent'};
+
   svg {
-    color: ${({ isDarkMode }) => (isDarkMode ? '#016aa2' : '#000')};
+    color: ${({ theme, isSelected }) =>
+      isSelected ? theme.color : theme.iconColor};
   }
 
   &:hover {
-    background: ${({ isDarkMode }) => (isDarkMode ? '#1f1f22' : '#f5f5f5')};
+    background-color: ${({ theme, isSelected }) =>
+      !isSelected && theme.sidebarHover};
   }
 `;
 
-export const ToggleButton = styled.div`
+export const BottomContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   padding: 0 0.75rem;
+  gap: 1rem;
+`;
+
+export const LogoutButton = styled.button<ThemeProps>`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  color: ${({ theme }) => theme.ToggleIconColor};
+
+  &:hover {
+    color: ${({ theme }) => theme.color};
+  }
 `;

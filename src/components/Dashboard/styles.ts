@@ -5,7 +5,7 @@ export const DashboardContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  background-color: ${({ theme }) => theme.sidebarBackground};
+  background-color: ${({ theme }) => theme.background};
   color: ${({ theme }) => theme.color};
 `;
 

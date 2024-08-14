@@ -3,6 +3,9 @@ export const lightTheme = {
   color: '#09090A',
   sidebarBackground: '#fff',
   sidebarHover: '#f5f5f5',
+  sidebarSelected: '#f5f5f5',
+  iconColor: '#016AA2',
+  backgroundIcon: '#09090A',
 };
 
 export const darkTheme = {
@@ -10,5 +13,8 @@ export const darkTheme = {
   color: '#EFEFEF',
   sidebarBackground: '#0D0D0E',
   sidebarHover: '#1F1F22',
+  sidebarSelected: '#016AA2',
   iconColor: '#016AA2',
+  backgroundIcon: '#016AA2',
+  ToggleIconColor: '#fff',
 };
