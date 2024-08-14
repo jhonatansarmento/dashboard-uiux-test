@@ -18,10 +18,6 @@ const Dashboard = () => {
           <S.CardValue>76%</S.CardValue>
         </S.Card>
       </S.CardsContainer>
-      <S.ChartContainer>
-        <S.ChartTitle>Atividade dos Usuários</S.ChartTitle>
-        <S.ChartPlaceholder>Gráfico Placeholder</S.ChartPlaceholder>
-      </S.ChartContainer>
     </S.DashboardContainer>
   );
 };

@@ -18,6 +18,12 @@ export const Title = styled.h1`
 export const CardsContainer = styled.div`
   display: flex;
   gap: 1.5rem;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 1rem;
+  }
 `;
 
 export const Card = styled.div`
@@ -25,6 +31,7 @@ export const Card = styled.div`
   padding: 1rem;
   border-radius: 8px;
   flex: 1;
+  min-width: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -42,29 +49,4 @@ export const CardValue = styled.p`
   font-size: 1.8rem;
   font-weight: bold;
   color: ${({ theme }) => theme.iconColor};
-`;
-
-export const ChartContainer = styled.div`
-  margin-top: 2rem;
-  padding: 1rem;
-  background-color: ${({ theme }) => theme.sidebarBackground};
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-`;
-
-export const ChartTitle = styled.h3`
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: ${({ theme }) => theme.color};
-`;
-
-export const ChartPlaceholder = styled.div`
-  height: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: ${({ theme }) => theme.color};
-  color: ${({ theme }) => theme.background};
-  border-radius: 8px;
-  font-size: 1.2rem;
 `;
