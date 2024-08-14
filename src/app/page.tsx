@@ -1,9 +1,5 @@
-import Sidebar from '@/components/Sidebar';
+import AppLayout from '@/components/AppLayout';
 
 export default function Home() {
-  return (
-    <>
-      <Sidebar />
-    </>
-  );
+  return <AppLayout />;
 }

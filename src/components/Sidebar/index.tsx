@@ -16,19 +16,39 @@ import ThemeToggle from '../StyledToggle';
 import * as S from './styles';
 
 const menuItems = [
-  { name: 'Dashboard', icon: <LuLayoutDashboard size={18} /> },
-  { name: 'Calendário', icon: <LuCalendar size={18} /> },
-  { name: 'Notificações', icon: <LuBell size={18} /> },
-  { name: 'Configurações', icon: <LuSettings size={18} /> },
-  { name: 'Contato', icon: <LuContact size={18} /> },
+  {
+    name: 'Dashboard',
+    icon: <LuLayoutDashboard size={18} />,
+    component: 'Dashboard',
+  },
+  { name: 'Calendário', icon: <LuCalendar size={18} />, component: 'Calendar' },
+  {
+    name: 'Notificações',
+    icon: <LuBell size={18} />,
+    component: 'Notifications',
+  },
+  {
+    name: 'Configurações',
+    icon: <LuSettings size={18} />,
+    component: 'Settings',
+  },
+  { name: 'Contato', icon: <LuContact size={18} />, component: 'Contact' },
 ];
 
-const Sidebar = () => {
+interface SidebarProps {
+  onSelectComponent: (component: string) => void;
+}
+
+const Sidebar = ({ onSelectComponent }: SidebarProps) => {
   const { isDarkMode, toggleTheme } = useContext(ThemeContext);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleLoginClick = () => {
     setIsLoggedIn(!isLoggedIn);
+  };
+
+  const handleMenuItemClick = (component: string) => {
+    onSelectComponent(component);
   };
 
   return (
@@ -64,7 +84,11 @@ const Sidebar = () => {
         </S.LoginContainer>
         <S.NavItems>
           {menuItems.map((item) => (
-            <S.NavItem key={item.name} isDarkMode={isDarkMode}>
+            <S.NavItem
+              key={item.name}
+              isDarkMode={isDarkMode}
+              onClick={() => handleMenuItemClick(item.component)}
+            >
               {item.icon} {item.name}
             </S.NavItem>
           ))}
