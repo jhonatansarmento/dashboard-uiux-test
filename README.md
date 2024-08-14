@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# TradeSee Dashboard - UI/UX Test
 
-## Getting Started
+## Descrição do Projeto
 
-First, run the development server:
+Este projeto foi desenvolvido como parte de um teste de UI/UX, cujo objetivo era criar uma dashboard com uma interface de usuário criativa, intuitiva e responsiva. O projeto utiliza as tecnologias mais recentes para construir uma aplicação web moderna, seguindo boas práticas de design e desenvolvimento.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Funcionalidades
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Dashboard Interativa**: Apresenta informações importantes sobre usuários, novos registros e taxa de retenção.
+- **Menu Lateral**: Permite navegar entre diferentes seções, como Dashboard, Mensagens, Notificações, Configurações e Contatos.
+- **Responsividade**: O layout da dashboard se adapta a diferentes tamanhos de tela, com o menu lateral colapsando em ícones em telas menores.
+- **Modo Escuro/Claro**: Possui um toggle para alternar entre os temas claro e escuro.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Justificativa das Escolhas de Design
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Interface
 
-## Learn More
+- **Cores**: A cor `#016AA2` foi escolhida como a cor principal do projeto, não apenas por seu contraste agradável em relação às cores de fundo escuras e claras, mas também porque é a cor oficial da marca TradeSee. Essa cor foi estrategicamente usada para reforçar a identidade visual da marca ao longo da aplicação, sendo aplicada em botões, ícones e destaques.
 
-To learn more about Next.js, take a look at the following resources:
+- **Componentização**: Os componentes foram divididos em partes menores para facilitar a manutenção e reutilização. Isso também contribui para um código mais organizado e limpo.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Responsividade**: O layout foi projetado para ser totalmente responsivo, adaptando-se a diferentes tamanhos de tela. O menu lateral, por exemplo, colapsa para mostrar apenas ícones em telas menores, maximizando o espaço disponível para o conteúdo principal.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Tecnologias
 
-## Deploy on Vercel
+- **React e Next.js**: Foram escolhidos pela sua eficiência na construção de interfaces dinâmicas e por facilitarem a criação de uma aplicação com rotas e componentes reutilizáveis.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Styled Components**: Permite que o CSS seja escrito diretamente no JavaScript, mantendo os estilos encapsulados por componente e proporcionando uma experiência de desenvolvimento mais modular.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **Icons**: Ícones da biblioteca `react-icons` foram utilizados para tornar a interface mais intuitiva e visualmente agradável.
+
+## Instalação
+
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/jhonatansarmento/dashboard-uiux-test
+   ```
+2. Navegue até o diretório do projeto:
+   ```bash
+   cd dashboard-uiux-test
+   ```
+3. Instale as dependências:
+   ```bash
+   npm install
+   ```
+4. Inicie o servidor de desenvolvimento:
+   ```bash
+   npm run dev
+   ```
+
+## Contato
+
+- **Nome**: Jhonatan Sarmento
+- **Email**: [jhonatan.sarmento@gmail.com](mailto:jhonatan.sarmento@gmail.com)
+- **LinkedIn**: [linkedin.com/in/jhonatansarmento](https://linkedin.com/in/
