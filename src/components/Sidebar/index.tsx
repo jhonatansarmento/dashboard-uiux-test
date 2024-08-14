@@ -1,5 +1,9 @@
 'use client';
 
+import { profile } from '@/constants/profile';
+import { ThemeContext } from '@/providers';
+import Image from 'next/image';
+import { useContext, useState } from 'react';
 import {
   LuBell,
   LuCalendar,
@@ -20,27 +24,54 @@ const menuItems = [
 ];
 
 const Sidebar = () => {
+  const { isDarkMode, toggleTheme } = useContext(ThemeContext);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLoginClick = () => {
+    setIsLoggedIn(!isLoggedIn);
+  };
+
   return (
-    <S.SidebarContainer>
+    <S.SidebarContainer isDarkMode={isDarkMode}>
       <div>
         <S.Logo>
-          <img src='/logo.svg' alt='TradeSee' />
+          <Image width={42} height={42} src='/logo.svg' alt='TradeSee' />
           TradeSee
         </S.Logo>
-        <S.LoginContainer>
-          <p>Olá, faça seu login</p>
+        <S.LoginContainer
+          isDarkMode={isDarkMode}
+          onClick={handleLoginClick}
+          isLoggedIn={isLoggedIn}
+        >
+          {isLoggedIn ? (
+            <>
+              <Image
+                src={profile.image}
+                width={42}
+                height={42}
+                alt={profile.name}
+                style={{ borderRadius: '50%' }}
+              />
+              <div>
+                <p>{profile.name}</p>
+                <p>{profile.email}</p>
+              </div>
+            </>
+          ) : (
+            <p>Olá, faça seu login</p>
+          )}
           <LuLogOut size={18} />
         </S.LoginContainer>
         <S.NavItems>
           {menuItems.map((item) => (
-            <S.NavItem key={item.name}>
+            <S.NavItem key={item.name} isDarkMode={isDarkMode}>
               {item.icon} {item.name}
             </S.NavItem>
           ))}
         </S.NavItems>
       </div>
       <S.ToggleButton>
-        <ThemeToggle />
+        <ThemeToggle isDarkMode={isDarkMode} handleToggle={toggleTheme} />
       </S.ToggleButton>
     </S.SidebarContainer>
   );

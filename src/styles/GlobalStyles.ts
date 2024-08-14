@@ -10,8 +10,8 @@ const GlobalStyles = createGlobalStyle`
   }
 
   html {
-    background-color: #09090A;
-    color: #EFEFEF;
+    background-color: ${({ theme }) => theme.background};
+    color: ${({ theme }) => theme.color};
   }
 `;
 

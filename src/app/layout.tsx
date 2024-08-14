@@ -1,6 +1,5 @@
 import Fonts from '@/components/Fonts';
-import StyledComponentsRegistry from '@/lib/registry';
-import GlobalStyles from '@/styles/GlobalStyles';
+import ThemeProviderWrapper from '@/providers';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -20,10 +19,7 @@ export default function RootLayout({
         <Fonts />
       </head>
       <body>
-        <StyledComponentsRegistry>
-          <GlobalStyles />
-          {children}
-        </StyledComponentsRegistry>
+        <ThemeProviderWrapper>{children}</ThemeProviderWrapper>
       </body>
     </html>
   );
