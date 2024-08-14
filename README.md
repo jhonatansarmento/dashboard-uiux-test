@@ -48,8 +48,14 @@ Este projeto foi desenvolvido como parte de um teste de UI/UX, cujo objetivo era
    npm run dev
    ```
 
+## URL em Produção
+
+O site está disponível em produção e pode ser acessado através do seguinte link:
+
+- https://dashboard-uiux-test.vercel.app
+
 ## Contato
 
 - **Nome**: Jhonatan Sarmento
 - **Email**: [jhonatan.sarmento@gmail.com](mailto:jhonatan.sarmento@gmail.com)
-- **LinkedIn**: [linkedin.com/in/jhonatansarmento](https://linkedin.com/in/
+- **LinkedIn**: [linkedin.com/in/jhonatansarmento](https://linkedin.com/in/jhonatansarmento)
