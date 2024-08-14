@@ -6,11 +6,11 @@ import Image from 'next/image';
 import { useContext, useState } from 'react';
 import {
   LuBell,
-  LuCalendar,
   LuContact,
   LuLayoutDashboard,
   LuLogIn,
   LuLogOut,
+  LuMessageSquare,
   LuSettings,
 } from 'react-icons/lu';
 import ThemeToggle from '../StyledToggle';
@@ -22,7 +22,11 @@ const menuItems = [
     icon: <LuLayoutDashboard size={18} />,
     component: 'Dashboard',
   },
-  { name: 'Calendário', icon: <LuCalendar size={18} />, component: 'Calendar' },
+  {
+    name: 'Messages',
+    icon: <LuMessageSquare size={18} />,
+    component: 'Messages',
+  },
   {
     name: 'Notificações',
     icon: <LuBell size={18} />,
@@ -71,7 +75,7 @@ const Sidebar = ({ onSelectComponent }: SidebarProps) => {
           isDarkMode={isDarkMode}
           onClick={handleLoginClick}
           isLoggedIn={isLoggedIn}
-          isClickable={!isLoggedIn} // Adiciona prop para controlar o estilo
+          isClickable={!isLoggedIn}
         >
           {isLoggedIn ? (
             <>

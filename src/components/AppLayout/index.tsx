@@ -3,9 +3,9 @@
 import Sidebar from '@/components/Sidebar';
 import { useState } from 'react';
 
-import Calendar from '@/components/Calendar';
 import Contacts from '@/components/Contatcs';
 import Dashboard from '@/components/Dashboard';
+import Messages from '@/components/Messages';
 import Notifications from '@/components/Notifications';
 import Settings from '@/components/Settings';
 
@@ -16,8 +16,8 @@ const AppLayout = () => {
     switch (selectedComponent) {
       case 'Dashboard':
         return <Dashboard />;
-      case 'Calendar':
-        return <Calendar />;
+      case 'Messages':
+        return <Messages />;
       case 'Notifications':
         return <Notifications />;
       case 'Settings':
