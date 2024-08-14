@@ -33,7 +33,7 @@ const menuItems = [
     icon: <LuSettings size={18} />,
     component: 'Settings',
   },
-  { name: 'Contato', icon: <LuContact size={18} />, component: 'Contact' },
+  { name: 'Contato', icon: <LuContact size={18} />, component: 'Contacts' },
 ];
 
 interface SidebarProps {

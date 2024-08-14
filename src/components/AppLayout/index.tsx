@@ -4,10 +4,10 @@ import Sidebar from '@/components/Sidebar';
 import { useState } from 'react';
 
 import Calendar from '@/components/Calendar';
+import Contacts from '@/components/Contatcs';
 import Dashboard from '@/components/Dashboard';
 import Notifications from '@/components/Notifications';
 import Settings from '@/components/Settings';
-// import Contact from '@/components/Contact';
 
 const AppLayout = () => {
   const [selectedComponent, setSelectedComponent] = useState('Dashboard');
@@ -22,8 +22,8 @@ const AppLayout = () => {
         return <Notifications />;
       case 'Settings':
         return <Settings />;
-      // case 'Contact':
-      //   return <Contact />;
+      case 'Contacts':
+        return <Contacts />;
       default:
         return <Dashboard />;
     }
