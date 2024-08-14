@@ -135,7 +135,8 @@ export const SidebarContainer = styled.div<ThemeProps>`
       flex-direction: column;
       align-items: center;
 
-      div {
+      div,
+      p {
         display: none;
       }
     }
