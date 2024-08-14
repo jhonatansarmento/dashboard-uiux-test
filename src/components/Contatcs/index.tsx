@@ -31,19 +31,15 @@ const Contacts = () => {
         <S.ContactInfo>
           <S.ContactItem href={`mailto:${profile.email}`}>
             <LuMail size={20} />
-            {profile.email}
           </S.ContactItem>
           <S.ContactItem href={profile.linkedin} target='_blank'>
             <LuLinkedin size={20} />
-            LinkedIn
           </S.ContactItem>
           <S.ContactItem href={profile.github} target='_blank'>
             <LuGithub size={20} />
-            GitHub
           </S.ContactItem>
           <S.ContactItem href={profile.instagram} target='_blank'>
             <LuInstagram size={20} />
-            Instagram
           </S.ContactItem>
         </S.ContactInfo>
       </S.Info>

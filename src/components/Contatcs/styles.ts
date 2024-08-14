@@ -38,14 +38,16 @@ export const Position = styled.p`
 
 export const ContactInfo = styled.div`
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap; /* Permite que os itens quebrem de linha se necessário */
+  margin-top: 1rem;
 `;
 
 export const ContactItem = styled.a`
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.25rem;
   font-size: 1rem;
   color: ${({ theme }) => theme.iconColor};
   text-decoration: none;
